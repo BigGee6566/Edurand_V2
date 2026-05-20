@@ -1,0 +1,17 @@
+# Editor metadata / screenshots
+screenshots/
+scraps/
+.review-manifest.json
+
+# OS junk
+.DS_Store
+Thumbs.db
+
+# Build folders (none currently but for safety)
+node_modules/
+dist/
+.cache/
+
+# Editor folders
+.vscode/
+.idea/
