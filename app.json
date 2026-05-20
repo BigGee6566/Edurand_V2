@@ -1,0 +1,20 @@
+{
+  "expo": {
+    "name": "EduRand",
+    "slug": "edurand",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "userInterfaceStyle": "automatic",
+    "ios": {
+      "supportsTablet": false,
+      "bundleIdentifier": "com.edurand.app"
+    },
+    "android": {
+      "package": "com.edurand.app",
+      "adaptiveIcon": {
+        "backgroundColor": "#0066FF"
+      }
+    },
+    "plugins": []
+  }
+}

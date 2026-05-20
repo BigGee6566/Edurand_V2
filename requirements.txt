@@ -1,0 +1,96 @@
+# ─────────────────────────────────────────────────────────────────────────────
+# EduRand — Requirements & Prerequisites
+# ─────────────────────────────────────────────────────────────────────────────
+#
+# NOTE: This is NOT a Python requirements file.
+# This file lists everything a developer must install on their machine
+# before they can run EduRand locally or on a phone via Expo Go.
+# ─────────────────────────────────────────────────────────────────────────────
+
+
+# ── 1. COMPUTER REQUIREMENTS ─────────────────────────────────────────────────
+
+  Operating System : Windows 10/11, macOS 12+, or Ubuntu 20.04+
+  RAM              : 8 GB minimum (16 GB recommended)
+  Disk space       : ~2 GB free (for node_modules + Expo cache)
+  Internet         : Required for the first install and for Expo Go to connect
+
+
+# ── 2. REQUIRED SOFTWARE (install in this order) ─────────────────────────────
+
+  [1] Node.js v18 or later
+      - Download : https://nodejs.org
+      - Verify   : node --version   (should print v18.x or higher)
+      - Includes npm automatically
+
+  [2] npm v9 or later  (comes bundled with Node.js)
+      - Verify   : npm --version    (should print 9.x or higher)
+
+  [3] Expo CLI  (installed automatically via npx — no separate install needed)
+      - Verify   : npx expo --version
+
+
+# ── 3. PHONE APP (to run EduRand on your device) ─────────────────────────────
+
+  Expo Go  — free app, available on both stores:
+      Android : https://play.google.com/store/apps/details?id=host.exp.exponent
+      iPhone  : https://apps.apple.com/app/expo-go/id982107779
+
+  Your phone and computer must be on the SAME Wi-Fi network.
+
+
+# ── 4. CODE EDITOR (optional but recommended) ────────────────────────────────
+
+  Visual Studio Code : https://code.visualstudio.com
+  Recommended extensions:
+      - ESLint
+      - Prettier
+      - React Native Tools
+
+
+# ── 5. JAVASCRIPT DEPENDENCIES (auto-installed by npm) ───────────────────────
+#
+# The following packages are declared in package.json and are installed
+# automatically when you run:  npm install --legacy-peer-deps
+#
+# You do NOT need to install these manually.
+
+  expo                      ~54.0.33   Core Expo SDK
+  expo-linear-gradient      ~14.0.1    Gradient backgrounds (hero cards)
+  expo-status-bar           ~3.0.9     Status bar colour control
+  react                     19.1.0     React core library
+  react-native              0.81.5     React Native framework
+  react-native-svg          ^15.0.0    SVG icons rendered natively
+  react-native-screens      ~3.35.0    Native screen transitions
+  react-native-safe-area-context ^5    Handles phone notches & home bars
+  @react-navigation/native        ^7   Navigation container
+  @react-navigation/native-stack  ^7   Stack navigator (auth flow)
+  @react-navigation/bottom-tabs   ^7   Bottom tab bar (main app)
+
+
+# ── 6. QUICK START (after all software above is installed) ───────────────────
+
+  Step 1 — Clone or download the project folder
+  Step 2 — Open a terminal inside the project folder
+  Step 3 — Run:   npm install --legacy-peer-deps
+  Step 4 — Run:   npx expo start
+  Step 5 — Open Expo Go on your phone and scan the QR code shown in the terminal
+
+
+# ── 7. COMMON ERRORS & FIXES ─────────────────────────────────────────────────
+
+  "Unable to find expo in this project"
+      → Run:  npm install --legacy-peer-deps   (you skipped step 3)
+
+  "Network response timed out" in Expo Go
+      → Make sure your phone and PC are on the same Wi-Fi network
+      → Try: npx expo start --tunnel  (uses a public tunnel instead of local IP)
+
+  "Metro bundler port 8081 already in use"
+      → Run:  npx expo start --port 8082
+
+  App opens but shows a red error screen
+      → Read the error message — it usually tells you exactly which file to fix
+      → Press "R" in the terminal to reload the app after fixing
+
+# ─────────────────────────────────────────────────────────────────────────────
