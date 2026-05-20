@@ -1,3 +1,6 @@
+# Uploads folder (user-generated content, not for version control)
+uploads/
+
 # Editor metadata / screenshots
 screenshots/
 scraps/
