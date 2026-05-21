@@ -122,9 +122,9 @@ function TransportScreen({ t, onGo, persona, showToast }) {
       <div style={{ padding: '0 20px' }}>
         <Card padded={false}>
           <div style={{ padding: 16 }}>
-            <RoutePoint dot="var(--edu-green)" label="From" value={from} onChange={setFrom}/>
+            <RoutePoint dot="var(--edu-green)" label="From" id="route-from" value={from} onChange={setFrom}/>
             <div style={{ height: 18, marginLeft: 7, borderLeft: '2px dashed var(--track)' }}/>
-            <RoutePoint dot="var(--edu-blue)" label="To" value={to} onChange={setTo}/>
+            <RoutePoint dot="var(--edu-blue)" label="To" id="route-to" value={to} onChange={setTo}/>
           </div>
         </Card>
       </div>
@@ -185,13 +185,13 @@ function TransportScreen({ t, onGo, persona, showToast }) {
   );
 }
 
-function RoutePoint({ dot, label, value, onChange }) {
+function RoutePoint({ dot, label, value, onChange, id }) {
   return (
     <div style={{ display: 'flex', alignItems: 'center', gap: 12 }}>
       <span style={{ width: 16, height: 16, borderRadius: 8, background: dot, flexShrink: 0, border: '3px solid var(--surface)', boxShadow: `0 0 0 2px ${dot}` }}/>
       <div style={{ flex: 1 }}>
-        <div style={{ fontSize: 10.5, color: 'var(--text-muted)', fontWeight: 700, letterSpacing: '0.04em', textTransform: 'uppercase' }}>{label}</div>
-        <input value={value} onChange={e => onChange(e.target.value)} style={{
+        <label htmlFor={id} style={{ fontSize: 10.5, color: 'var(--text-muted)', fontWeight: 700, letterSpacing: '0.04em', textTransform: 'uppercase', display: 'block' }}>{label}</label>
+        <input id={id} value={value} onChange={e => onChange(e.target.value)} style={{
           width: '100%', border: 'none', outline: 'none', background: 'transparent',
           fontFamily: 'var(--font-display)', fontWeight: 700, fontSize: 16, color: 'var(--text)',
           letterSpacing: '-0.02em', padding: 0,

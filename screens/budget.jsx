@@ -211,7 +211,7 @@ function AddSheet({ open, onClose, mode, setMode, onSave }) {
       {/* tab toggle */}
       <div style={{ display: 'flex', gap: 6, background: 'var(--sunken)', padding: 4, borderRadius: 12, marginBottom: 18 }}>
         {['expense', 'income'].map(m => (
-          <button key={m} onClick={() => setMode(m)} style={{
+          <button key={m} type="button" onClick={() => setMode(m)} style={{
             flex: 1, height: 36, borderRadius: 9, border: 'none',
             background: mode === m ? 'var(--surface)' : 'transparent',
             color: 'var(--text)', cursor: 'pointer',
@@ -223,8 +223,9 @@ function AddSheet({ open, onClose, mode, setMode, onSave }) {
 
       {/* amount */}
       <div style={{ textAlign: 'center', padding: '14px 0 18px' }}>
-        <div style={{ fontSize: 12, color: 'var(--text-muted)', fontWeight: 600, letterSpacing: '0.04em', textTransform: 'uppercase' }}>Amount (R)</div>
+        <label htmlFor="add-amount" style={{ fontSize: 12, color: 'var(--text-muted)', fontWeight: 600, letterSpacing: '0.04em', textTransform: 'uppercase', display: 'block' }}>Amount (R)</label>
         <input
+          id="add-amount"
           type="number" inputMode="decimal" value={amount} onChange={e => setAmount(e.target.value)}
           placeholder="0"
           style={{
@@ -259,8 +260,8 @@ function AddSheet({ open, onClose, mode, setMode, onSave }) {
       )}
 
       <div>
-        <div style={{ fontSize: 11.5, fontWeight: 700, color: 'var(--text-muted)', letterSpacing: '0.04em', textTransform: 'uppercase', marginBottom: 8 }}>Where</div>
-        <input value={merchant} onChange={e => setMerchant(e.target.value)} placeholder={mode === 'expense' ? 'Checkers, Uber, …' : 'NSFAS, family, gig'} style={{
+        <label htmlFor="add-where" style={{ fontSize: 11.5, fontWeight: 700, color: 'var(--text-muted)', letterSpacing: '0.04em', textTransform: 'uppercase', marginBottom: 8, display: 'block' }}>Where</label>
+        <input id="add-where" value={merchant} onChange={e => setMerchant(e.target.value)} placeholder={mode === 'expense' ? 'Checkers, Uber, …' : 'NSFAS, family, gig'} style={{
           width: '100%', height: 50, padding: '0 16px',
           background: 'var(--input-bg)', border: 'var(--input-border)',
           borderRadius: 'var(--r-input)', fontSize: 15, fontFamily: 'var(--font-body)',

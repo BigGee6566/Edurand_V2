@@ -66,6 +66,7 @@ function SimulatorScreen({ t, onGo, persona, budget, monthSpent, daysLeft, state
               <div style={{ fontFamily: 'var(--font-display)', fontWeight: 900, fontSize: 28, color: 'var(--edu-blue)', letterSpacing: '-0.025em' }}>{R(perDay)}</div>
             </div>
             <input type="range" min="0" max="200" value={perDay} onChange={e => setPerDay(+e.target.value)}
+              aria-label="Daily spend amount in rand"
               style={{ width: '100%', accentColor: willMake ? 'var(--edu-green)' : '#EF4444', marginTop: 14, height: 8 }}/>
             <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: 11, color: 'var(--text-muted)', marginTop: 4 }}>
               <span>R0</span>
@@ -225,6 +226,7 @@ Message to analyse:
               value={msg}
               onChange={e => setMsg(e.target.value)}
               placeholder="Paste the SMS, WhatsApp, or email content here…"
+              aria-label="Message to scan for scams"
               rows={5}
               style={{
                 width: '100%', padding: 12, borderRadius: 12,
@@ -448,7 +450,7 @@ function WhatsAppPreview({ onClose, persona, lang }) {
     }}>
       {/* WA header */}
       <div style={{ padding: '14px 12px 12px', background: '#075E54', color: '#fff', display: 'flex', alignItems: 'center', gap: 10 }}>
-        <button onClick={onClose} style={{ background: 'none', border: 'none', cursor: 'pointer', color: '#fff', padding: 6 }}>
+        <button onClick={onClose} aria-label="Close WhatsApp preview" style={{ background: 'none', border: 'none', cursor: 'pointer', color: '#fff', padding: 6 }}>
           <Icon name="arrowLeft" size={20}/>
         </button>
         <div style={{

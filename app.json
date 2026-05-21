@@ -13,6 +13,9 @@
       "package": "com.edurand.app",
       "adaptiveIcon": {
         "backgroundColor": "#0066FF"
+      },
+      "androidNavigationBar": {
+        "visible": "hidden"
       }
     },
     "plugins": []

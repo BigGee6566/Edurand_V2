@@ -110,7 +110,7 @@ function Card({ children, style, padded = true, accent, onClick, tone = 'surface
 }
 
 // ── Button ──────────────────────────────────────────────────────
-function Button({ children, onClick, variant = 'primary', size = 'md', icon, iconRight, full, style, disabled }) {
+function Button({ children, onClick, variant = 'primary', size = 'md', icon, iconRight, full, style, disabled, type }) {
   const sizes = {
     sm: { h: 36, px: 14, fs: 13, gap: 6, r: 'var(--r-btn-sm)' },
     md: { h: 48, px: 18, fs: 15, gap: 8, r: 'var(--r-btn)' },
@@ -124,7 +124,7 @@ function Button({ children, onClick, variant = 'primary', size = 'md', icon, ico
     success:   { bg: 'var(--edu-green)', color: '#fff', border: 'none' },
   }[variant];
   return (
-    <button onClick={onClick} disabled={disabled} style={{
+    <button type={type || 'button'} onClick={onClick} disabled={disabled} style={{
       display: 'inline-flex', alignItems: 'center', justifyContent: 'center',
       gap: sizes.gap, height: sizes.h, padding: `0 ${sizes.px}px`, borderRadius: sizes.r,
       fontFamily: 'var(--font-body)', fontWeight: 600, fontSize: sizes.fs,
@@ -206,7 +206,7 @@ function BottomNav({ active, onChange, tabs }) {
         {tabs.map(t => {
           const isActive = active === t.id;
           return (
-            <button key={t.id} onClick={() => onChange(t.id)}
+            <button key={t.id} type="button" onClick={() => onChange(t.id)} aria-label={t.label}
               style={{
                 flex: 1, background: 'none', border: 'none', cursor: 'pointer',
                 display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 4, padding: '6px 4px',
@@ -273,7 +273,7 @@ function Sheet({ open, onClose, title, children }) {
         {title && (
           <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: 14 }}>
             <h3 style={{ margin: 0, fontFamily: 'var(--font-display)', fontWeight: 800, fontSize: 22, letterSpacing: '-0.02em' }}>{title}</h3>
-            <button onClick={onClose} style={{ background: 'var(--sunken)', border: 'none', borderRadius: 999, width: 32, height: 32, display: 'flex', alignItems: 'center', justifyContent: 'center', cursor: 'pointer', color: 'var(--text)' }}>
+            <button onClick={onClose} aria-label="Close" style={{ background: 'var(--sunken)', border: 'none', borderRadius: 999, width: 32, height: 32, display: 'flex', alignItems: 'center', justifyContent: 'center', cursor: 'pointer', color: 'var(--text)' }}>
               <Icon name="x" size={18}/>
             </button>
           </div>
@@ -289,7 +289,7 @@ function PageHeader({ title, sub, onBack, trailing }) {
   return (
     <div style={{ display: 'flex', alignItems: 'flex-start', gap: 12, padding: '8px 20px 12px' }}>
       {onBack && (
-        <button onClick={onBack} style={{ background: 'var(--sunken)', border: 'none', borderRadius: 999, width: 36, height: 36, display: 'flex', alignItems: 'center', justifyContent: 'center', cursor: 'pointer', color: 'var(--text)', marginTop: 2 }}>
+        <button onClick={onBack} aria-label="Go back" style={{ background: 'var(--sunken)', border: 'none', borderRadius: 999, width: 36, height: 36, display: 'flex', alignItems: 'center', justifyContent: 'center', cursor: 'pointer', color: 'var(--text)', marginTop: 2 }}>
           <Icon name="arrowLeft" size={18}/>
         </button>
       )}

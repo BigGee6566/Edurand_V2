@@ -64,9 +64,9 @@ function ProfileScreen({ t, persona, lang, onSignOut, dark, onToggleDark, onGo, 
         <SectionLabel>Settings</SectionLabel>
         <Card padded={false} style={{ marginTop: 10 }}>
           <SettingsRow icon="moon" label="Dark mode" trailing={
-            <Toggle on={dark} onChange={onToggleDark}/>
+            <Toggle on={dark} onChange={onToggleDark} label="Toggle dark mode"/>
           }/>
-          <SettingsRow icon="bell" label="Crisis alerts" trailing={<Toggle on={true}/>}/>
+          <SettingsRow icon="bell" label="Crisis alerts" trailing={<Toggle on={true} label="Toggle crisis alerts"/>}/>
           <SettingsRow icon="map" label="Language" detail={langName(lang)}/>
           <SettingsRow icon="settings" label="WhatsApp coaching" detail="Open chat →" onClick={onOpenWhatsApp}/>
           <SettingsRow icon="wallet" label="Link bank" detail="Connect →" onClick={() => onGo('linkbank')} last/>
@@ -112,13 +112,20 @@ function SettingsRow({ icon, label, detail, trailing, last, onClick }) {
   );
 }
 
-function Toggle({ on, onChange }) {
+function Toggle({ on, onChange, label }) {
   return (
-    <button onClick={() => onChange && onChange(!on)} style={{
-      width: 42, height: 24, borderRadius: 12, padding: 0,
-      background: on ? 'var(--edu-blue)' : 'var(--track)', border: 'none', cursor: 'pointer',
-      position: 'relative', transition: 'background 0.2s',
-    }}>
+    <button
+      type="button"
+      onClick={() => onChange && onChange(!on)}
+      aria-label={label || 'Toggle'}
+      aria-checked={on}
+      role="switch"
+      style={{
+        width: 42, height: 24, borderRadius: 12, padding: 0,
+        background: on ? 'var(--edu-blue)' : 'var(--track)', border: 'none', cursor: 'pointer',
+        position: 'relative', transition: 'background 0.2s',
+      }}
+    >
       <span style={{
         position: 'absolute', top: 2, left: on ? 20 : 2,
         width: 20, height: 20, borderRadius: 10, background: '#fff',

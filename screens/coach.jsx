@@ -60,7 +60,7 @@ function CoachScreen({ t, persona, lang, state, monthSpent, budget, daysLeft, tx
         display: 'flex', alignItems: 'center', gap: 12, padding: '8px 16px 12px',
         borderBottom: '1px solid var(--track-soft)', background: 'var(--surface)',
       }}>
-        <button onClick={() => onGo('home')} style={{
+        <button onClick={() => onGo('home')} aria-label="Back to home" style={{
           background: 'var(--sunken)', border: 'none', borderRadius: 999, width: 36, height: 36,
           display: 'flex', alignItems: 'center', justifyContent: 'center', cursor: 'pointer', color: 'var(--text)',
         }}><Icon name="arrowLeft" size={18}/></button>
@@ -106,10 +106,11 @@ function CoachScreen({ t, persona, lang, state, monthSpent, budget, daysLeft, tx
             onChange={e => setInput(e.target.value)}
             onKeyDown={e => e.key === 'Enter' && send(input)}
             placeholder={t.askMe}
+            aria-label={t.askMe}
             style={{ flex: 1, background: 'transparent', border: 'none', outline: 'none',
               fontSize: 14, fontFamily: 'var(--font-body)', color: 'var(--text)', height: 40 }}
           />
-          <button onClick={() => send(input)} disabled={!input.trim()} style={{
+          <button onClick={() => send(input)} disabled={!input.trim()} aria-label="Send message" style={{
             width: 36, height: 36, borderRadius: 18,
             background: input.trim() ? 'var(--edu-blue)' : 'var(--track)',
             color: '#fff', border: 'none', cursor: input.trim() ? 'pointer' : 'default',

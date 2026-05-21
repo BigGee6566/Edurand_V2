@@ -1,9 +1,10 @@
 import React from 'react';
-import Svg, { Path, Rect, Circle } from 'react-native-svg';
+import Svg, { Path, Rect, Circle, G } from 'react-native-svg';
 
 export default function Icon({ name, size = 22, color = '#0F172A', stroke = 1.75 }) {
   const p = { width: size, height: size, viewBox: '0 0 24 24', fill: 'none', stroke: color, strokeWidth: stroke, strokeLinecap: 'round', strokeLinejoin: 'round' };
   const icons = {
+    logoR: <><Path d="M2 9 12 4l10 5-10 5L2 9z" stroke={color} strokeWidth={stroke} strokeLinecap="round" strokeLinejoin="round"/><Path d="M6 11v5c0 1.5 3 3 6 3s6-1.5 6-3v-5" stroke={color} strokeWidth={stroke} strokeLinecap="round" strokeLinejoin="round"/><Circle cx="19" cy="19" r="5" fill="#00C853" stroke="none"/><Path d="M16.8 16.5h2.4a1.2 1.2 0 0 1 0 2.4h-2.4m0-2.4v5m2.4-2.6 1.8 2.6" stroke="#fff" strokeWidth={1.3} strokeLinecap="round" strokeLinejoin="round"/></>,
     home:       <><Path d="M3 11.5 12 4l9 7.5" stroke={color} strokeWidth={stroke} strokeLinecap="round" strokeLinejoin="round"/><Path d="M5 10v10h14V10" stroke={color} strokeWidth={stroke} strokeLinecap="round" strokeLinejoin="round"/></>,
     chart:      <><Rect x="3" y="13" width="4" height="8" rx="1" stroke={color} strokeWidth={stroke}/><Rect x="10" y="8" width="4" height="13" rx="1" stroke={color} strokeWidth={stroke}/><Rect x="17" y="4" width="4" height="17" rx="1" stroke={color} strokeWidth={stroke}/></>,
     book:       <><Path d="M4 4.5A2.5 2.5 0 0 1 6.5 2H20v17H6.5A2.5 2.5 0 0 0 4 21.5v-17z" stroke={color} strokeWidth={stroke}/><Path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20" stroke={color} strokeWidth={stroke}/></>,

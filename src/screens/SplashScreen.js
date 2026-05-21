@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { View, Text, TouchableOpacity, StyleSheet } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { LinearGradient } from 'expo-linear-gradient';
@@ -13,13 +13,21 @@ function Logo({ size = 56 }) {
       <Path d="M6 22 24 13l18 9-18 9-18-9z" fill={theme.blue}/>
       <Path d="M14 27v6c0 2 4 4 10 4s10-2 10-4v-6" fill="none" stroke={theme.blue} strokeWidth="2.5" strokeLinecap="round"/>
       <Circle cx="37" cy="34" r="9" fill={theme.green}/>
-      <Path d="M34 38l2 2 4-5" stroke="#fff" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+      <Path d="M33 28v13" stroke="#fff" strokeWidth="2" strokeLinecap="round"/>
+      <Path d="M33 28h5.5Q43 28 43 31.5Q43 35 38.5 35H33" stroke="#fff" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" fill="none"/>
+      <Path d="M38 35l4.5 6" stroke="#fff" strokeWidth="2" strokeLinecap="round"/>
     </Svg>
   );
 }
 
 export default function SplashScreen({ navigation }) {
-  const { theme, t } = useApp();
+  const { theme, t, user, loadingAuth } = useApp();
+
+  useEffect(() => {
+    if (!loadingAuth && user) {
+      navigation.replace('Main');
+    }
+  }, [user, loadingAuth]);
   return (
     <LinearGradient colors={[theme.splashBg1, theme.splashBg2]} style={styles.root}>
       <SafeAreaView style={styles.safe}>

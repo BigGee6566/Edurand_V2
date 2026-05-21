@@ -90,3 +90,32 @@ export const ACHIEVEMENTS = [
 ];
 
 export const R = (n) => `R${Math.abs(Math.round(n)).toLocaleString('en-ZA')}`;
+
+export const MEALS = [
+  { id:'m1', name:'Mince + spaghetti',   cost:28, servings:4, time:'25 min', why:'Cheapest protein per gram this week.', store:'Checkers Sixty60', emoji:'🍝', items:[{name:'500g mince',price:65},{name:'Spaghetti 500g',price:22},{name:'Onion + tomato',price:18},{name:'Stock cube',price:5}] },
+  { id:'m2', name:'Pap + chakalaka',     cost:14, servings:3, time:'20 min', why:'Filling, R14 a plate. Lasts two days.', store:'Shoprite',        emoji:'🌽', items:[{name:'Maize meal 2.5kg',price:35},{name:'Chakalaka tin',price:18},{name:'Tinned beans',price:12}] },
+  { id:'m3', name:'Egg fried rice',      cost:17, servings:2, time:'15 min', why:'Three pantry items, ready in 15 min.', store:'Pick n Pay',       emoji:'🍳', items:[{name:'Rice 1kg',price:24},{name:'Eggs (6)',price:26},{name:'Mixed veg bag',price:18}] },
+  { id:'m4', name:'Peanut-butter oats',  cost:9,  servings:1, time:'5 min',  why:'Cheaper than Steers breakfast.',       store:'Shoprite',        emoji:'🥣', items:[{name:'Jungle Oats 1kg',price:32},{name:'Peanut butter 400g',price:38},{name:'Banana',price:4}] },
+];
+
+export const TRANSPORT = [
+  { id:'t1', mode:'MyCiTi Bus',    cost:16, time:'32 min', note:'Cheapest, predictable schedule.', icon:'🚐' },
+  { id:'t2', mode:'Walk',          cost:0,  time:'48 min', note:'Free + your steps for the day.',  icon:'🚶' },
+  { id:'t3', mode:'Jammie Shuttle',cost:0,  time:'28 min', note:'Free for UCT students. 4 stops.', icon:'🚌' },
+  { id:'t4', mode:'Bolt',          cost:42, time:'14 min', note:'Quickest, but R26 more vs bus.',  icon:'🚗' },
+  { id:'t5', mode:'Uber',          cost:48, time:'14 min', note:'Same time as Bolt, R6 pricier.',  icon:'🚙' },
+];
+
+export const CHALLENGES = [
+  { id:'c1', name:'R52 a week',       desc:'Save R1 more each week. End year with R1,378.', saved:78,  target:1378, daysIn:11, days:365, color:'#00C853' },
+  { id:'c2', name:'No-Uber June',     desc:'Bus or walk for the whole month.',              saved:340, target:600,  daysIn:24, days:30,  color:'#FFB300' },
+  { id:'c3', name:'Cook 5, eat out 1',desc:'5 home meals to every 1 takeaway, weekly.',    saved:180, target:800,  daysIn:12, days:28,  color:'#0066FF' },
+];
+
+export const NEWS = [
+  { id:'n1', cat:'NSFAS',       mins:3, title:'NSFAS allowance dates shift in July — what to expect',      summary:'The board updated payout windows. Plan your Sixty60 order around the 4th.',                               hot:true },
+  { id:'n2', cat:'Banking',     mins:4, title:'Tymebank vs Capitec for students in 2026',                  summary:'Fees, savings rates, and which campus tap-to-pay actually likes which bank.' },
+  { id:'n3', cat:'Side hustle', mins:6, title:'Tutoring 1st-years pays better than UberEats',              summary:'Real numbers from 4 UCT, Wits and UJ students who tried both.' },
+  { id:'n4', cat:'Saving',      mins:2, title:'The R20 trick that cuts your data bill in half',            summary:"Set a Wi-Fi-only download schedule. Your phone's smarter than you think." },
+  { id:'n5', cat:'Crisis',      mins:5, title:'What to do when allowance is late — without borrowing at 25%', summary:"5 SA-only options most students don't know about. Save this one.",            hot:true },
+];

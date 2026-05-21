@@ -22,8 +22,8 @@ function HomeScreen({ t, persona, spending, state, budget, onGo, txns, daysLeft,
           <div style={{ fontSize: 22, fontFamily: 'var(--font-display)', fontWeight: 800, letterSpacing: '-0.025em', marginTop: 2 }}>{persona.short}</div>
         </div>
         <div style={{ display: 'flex', gap: 8 }}>
-          <IconChip icon="bell" onClick={() => onGo('news')} notify={isCrisis}/>
-          <IconChip icon="user" onClick={() => onGo('profile')} avatar={persona.initials}/>
+          <IconChip icon="bell" onClick={() => onGo('news')} notify={isCrisis} ariaLabel="Notifications"/>
+          <IconChip icon="user" onClick={() => onGo('profile')} avatar={persona.initials} ariaLabel="Profile"/>
         </div>
       </div>
 
@@ -63,10 +63,10 @@ function HomeScreen({ t, persona, spending, state, budget, onGo, txns, daysLeft,
             </div>
 
             <div style={{ display: 'flex', gap: 8, marginTop: 16 }}>
-              <button onClick={() => onGo('budget')} style={heroBtn}>
+              <button type="button" onClick={() => onGo('budget')} style={heroBtn}>
                 <Icon name="chart" size={16}/> {t.tracker}
               </button>
-              <button onClick={() => onGo('coach')} style={heroBtn}>
+              <button type="button" onClick={() => onGo('coach')} style={heroBtn}>
                 <Icon name="bot" size={16}/> {t.coach}
               </button>
             </div>
@@ -121,7 +121,7 @@ function HomeScreen({ t, persona, spending, state, budget, onGo, txns, daysLeft,
       <div style={{ padding: '20px 20px 0' }}>
         <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 10 }}>
           <SectionLabel>{t.recent}</SectionLabel>
-          <button onClick={() => onGo('budget')} style={{ background: 'none', border: 'none', color: 'var(--edu-blue)', fontSize: 12, fontWeight: 700, cursor: 'pointer' }}>
+          <button type="button" onClick={() => onGo('budget')} style={{ background: 'none', border: 'none', color: 'var(--edu-blue)', fontSize: 12, fontWeight: 700, cursor: 'pointer' }}>
             {t.seeAll}
           </button>
         </div>
@@ -151,9 +151,9 @@ const heroBtn = {
   cursor: 'pointer', backdropFilter: 'blur(10px)',
 };
 
-function IconChip({ icon, onClick, notify, avatar }) {
+function IconChip({ icon, onClick, notify, avatar, ariaLabel }) {
   return (
-    <button onClick={onClick} style={{
+    <button onClick={onClick} aria-label={ariaLabel || icon} style={{
       width: 40, height: 40, borderRadius: 999,
       background: 'var(--sunken)', border: 'var(--card-border)',
       display: 'flex', alignItems: 'center', justifyContent: 'center',

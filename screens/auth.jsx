@@ -60,7 +60,7 @@ function LoginScreen({ t, onBack, onLogin, onSwitchToSignup, persona }) {
 
   return (
     <form onSubmit={submit} style={{ height: '100%', display: 'flex', flexDirection: 'column', padding: 'calc(56px + env(safe-area-inset-top)) 24px 24px' }}>
-      <button type="button" onClick={onBack} style={{
+      <button type="button" onClick={onBack} aria-label="Go back" style={{
         background: 'var(--sunken)', border: 'none', borderRadius: 999, width: 40, height: 40,
         display: 'flex', alignItems: 'center', justifyContent: 'center', cursor: 'pointer', color: 'var(--text)',
         alignSelf: 'flex-start', marginBottom: 24,
@@ -72,15 +72,15 @@ function LoginScreen({ t, onBack, onLogin, onSwitchToSignup, persona }) {
       </div>
 
       <div style={{ display: 'flex', flexDirection: 'column', gap: 14, flex: 1 }}>
-        <Field label={t.email} icon="mail">
-          <input type="email" value={email} onChange={e => setEmail(e.target.value)} style={inputStyle}/>
+        <Field label={t.email} icon="mail" id="login-email">
+          <input id="login-email" type="email" value={email} onChange={e => setEmail(e.target.value)} style={inputStyle}/>
         </Field>
-        <Field label={t.password} icon="lock" trailing={
-          <button type="button" onClick={() => setShowPw(!showPw)} style={trailingBtn} aria-label="Toggle password">
+        <Field label={t.password} icon="lock" id="login-pw" trailing={
+          <button type="button" onClick={() => setShowPw(!showPw)} style={trailingBtn} aria-label="Toggle password visibility">
             <Icon name={showPw ? 'eye' : 'eye'} size={16}/>
           </button>
         }>
-          <input type={showPw ? 'text' : 'password'} value={pw} onChange={e => setPw(e.target.value)} style={inputStyle}/>
+          <input id="login-pw" type={showPw ? 'text' : 'password'} value={pw} onChange={e => setPw(e.target.value)} style={inputStyle}/>
         </Field>
         <a href="#" onClick={e => e.preventDefault()} style={{ alignSelf: 'flex-end', fontSize: 13, color: 'var(--edu-blue)', fontWeight: 600, textDecoration: 'none' }}>Forgot password?</a>
       </div>
@@ -128,7 +128,7 @@ function SignupScreen({ t, onBack, onSignup, onSwitchToLogin, persona, setPerson
   return (
     <div style={{ height: '100%', display: 'flex', flexDirection: 'column', padding: 'calc(56px + env(safe-area-inset-top)) 24px 24px' }}>
       <div style={{ display: 'flex', alignItems: 'center', gap: 12, marginBottom: 20 }}>
-        <button type="button" onClick={step === 0 ? onBack : () => setStep(0)} style={{
+        <button type="button" onClick={step === 0 ? onBack : () => setStep(0)} aria-label="Go back" style={{
           background: 'var(--sunken)', border: 'none', borderRadius: 999, width: 40, height: 40,
           display: 'flex', alignItems: 'center', justifyContent: 'center', cursor: 'pointer', color: 'var(--text)',
         }}><Icon name="arrowLeft" size={18}/></button>
@@ -150,14 +150,14 @@ function SignupScreen({ t, onBack, onSignup, onSwitchToLogin, persona, setPerson
       <div style={{ flex: 1, display: 'flex', flexDirection: 'column', gap: 12 }}>
         {step === 0 ? (
           <>
-            <Field label={t.fullName} icon="user">
-              <input type="text" value={name} onChange={e => setName(e.target.value)} style={inputStyle}/>
+            <Field label={t.fullName} icon="user" id="signup-name">
+              <input id="signup-name" type="text" value={name} onChange={e => setName(e.target.value)} style={inputStyle}/>
             </Field>
-            <Field label={t.email} icon="mail">
-              <input type="email" value={email} onChange={e => setEmail(e.target.value)} style={inputStyle}/>
+            <Field label={t.email} icon="mail" id="signup-email">
+              <input id="signup-email" type="email" value={email} onChange={e => setEmail(e.target.value)} style={inputStyle}/>
             </Field>
-            <Field label={t.password} icon="lock">
-              <input type="password" value={pw} onChange={e => setPw(e.target.value)} placeholder="6+ characters" style={inputStyle}/>
+            <Field label={t.password} icon="lock" id="signup-pw">
+              <input id="signup-pw" type="password" value={pw} onChange={e => setPw(e.target.value)} placeholder="6+ characters" style={inputStyle}/>
             </Field>
           </>
         ) : (
@@ -212,10 +212,10 @@ const inputStyle = {
 const fieldLabel = { fontSize: 12, fontWeight: 700, color: 'var(--text-muted)', letterSpacing: '0.05em', textTransform: 'uppercase', marginBottom: 8, display: 'block' };
 const trailingBtn = { position: 'absolute', right: 12, top: '50%', transform: 'translateY(-50%)', background: 'none', border: 'none', cursor: 'pointer', color: 'var(--text-muted)', padding: 4 };
 
-function Field({ label, icon, children, trailing }) {
+function Field({ label, icon, children, trailing, id }) {
   return (
     <div>
-      <label style={fieldLabel}>{label}</label>
+      <label htmlFor={id} style={fieldLabel}>{label}</label>
       <div style={{ position: 'relative' }}>
         <span style={{ position: 'absolute', left: 14, top: '50%', transform: 'translateY(-50%)', display: 'flex', color: 'var(--text-muted)', zIndex: 1 }}>
           <Icon name={icon} size={18}/>
