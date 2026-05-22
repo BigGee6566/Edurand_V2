@@ -1,0 +1,35 @@
+# Uploads folder (user-generated content, not for version control)
+uploads/
+
+# Editor metadata / screenshots
+screenshots/
+scraps/
+.review-manifest.json
+
+# OS junk
+.DS_Store
+Thumbs.db
+
+# Build folders (none currently but for safety)
+node_modules/
+dist/
+.cache/
+
+# Editor folders
+.vscode/
+.idea/
+
+# Environment variables (never commit secrets)
+.env
+.env.local
+.env.*.local
+
+# Expo
+.expo/
+*.jks
+*.p8
+*.p12
+*.key
+*.mobileprovision
+*.orig.*
+web-build/
